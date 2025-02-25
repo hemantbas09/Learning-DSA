@@ -1,62 +1,122 @@
-3. Syntax of Array Deceleration:
+### 3. Syntax of Array Declaration
 
-# Deceleration Only:
+#### Declaration Only
+```java
+int[] numbers;  // Preferred syntax
+int numbers[];  // Alternative (not commonly used)
+```
 
-int [] numbers; // preferred syntax
-int numbers[];  // alternative(not common)
+#### Declaration and Instantiation
+```java
+int[] numbers = new int[5];
+String[] names = new String[5];
+```
+Here, `5` represents the size of the array.
 
-# Deceleration and instantiation:
+#### Declaration with Initialization
+```java
+int[] numbers = {1, 2, 3, 4, 5, 6};
+```
 
-int[] numbers= new int[5];
-String[] names= new Strings[5];
+### 4. Memory Allocation in Arrays
+Understanding memory allocation in arrays is crucial. Arrays in Java are stored in the heap memory, and each element of the array is allocated memory based on its data type. Java initializes array elements with default values (0 for numeric types, `false` for `boolean`, and `null` for objects).
 
-where 5 is size of Array;
-
-# Declaration with initialization:
-
-int [] numbers={1,2,3,4,5,6};
-
-4. Memory Allocation in Arrays:
-
-This should read detailly later:
-
-5.Accessing Elements in a Single-Dimensional Array:
-
+### 5. Accessing Elements in a Single-Dimensional Array
+```java
 int[] arr = {10, 20, 30, 40};
 System.out.println(arr[1]); // Prints 20 (index 1)
-arr[2] = 50;// Changes element at index 2 to 50
+arr[2] = 50; // Changes element at index 2 to 50
+```
 
-6. Types of Arrays:
+### 6. Types of Arrays
 
-# single dimensional arrays: linear list of elements. eg int []number={1,2,3}
-# multi dimensional Arrays: arrays inside the array like matrices. eg int numbers={{1,2},{3,4},{5,6}}
-# Jagged Arrays: array which have different length row:eg int numbers={{1, 2}, {3, 4, 5}, {6}}
+#### Single-Dimensional Arrays
+A linear list of elements.
+```java
+int[] numbers = {1, 2, 3};
+```
 
+#### Multi-Dimensional Arrays
+Arrays within arrays, similar to matrices.
+```java
+int[][] numbers = {{1, 2}, {3, 4}, {5, 6}};
+```
 
-# 2-D Array:
+#### Jagged Arrays
+Arrays with rows of different lengths.
+```java
+int[][] numbers = {{1, 2}, {3, 4, 5}, {6}};
+```
 
-Initialization:
+### 7. Two-Dimensional Arrays
+
+#### Initialization
+```java
 int[][] matrix = {{1, 2, 3}, {4, 5, 6}};
+```
 
-using new:
-int[][] matrix = new int[2][3]; // 2 rows, 3 columns, all 0s
-matrix[0][1] = 10;             // Sets row 0, column 1 to 10
+#### Using `new`
+```java
+int[][] matrix = new int[2][3]; // 2 rows, 3 columns, all initialized to 0
+matrix[0][1] = 10; // Sets row 0, column 1 to 10
+```
 
-Accessing:
-
+#### Accessing Elements
+```java
 System.out.println(matrix[1][2]); // Prints 6 from {{1, 2, 3}, {4, 5, 6}}
+```
 
-# Length Operation in Arrays:
+### 8. Array Length Operation
+```java
 int[] arr = new int[5];
 System.out.println(arr.length); // Prints 5
+```
 
-# Taking Array Input in Java:
+### 9. Taking Array Input in Java
+To take input from the user, the `Scanner` class is commonly used along with a loop.
+```java
+import java.util.Scanner;
 
-To take input from the user, you typically use the Scanner class with a loop.
+public class ArrayInput {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int[] numbers = new int[5];
+        System.out.println("Enter 5 numbers:");
+        for (int i = 0; i < numbers.length; i++) {
+            numbers[i] = scanner.nextInt();
+        }
+        scanner.close();
+    }
+}
+```
 
-# Cloning an Array:
+### 10. Cloning an Array
+Cloning creates a new array with the same contents as the original.
+```java
+int[] original = {1, 2, 3, 4, 5};
+int[] cloned = original.clone();
+System.out.println(cloned[2]); // Prints 3
+```
 
-// TO-DO
+### 11. Copying an Array
+An array can be copied using `System.arraycopy()` or `Arrays.copyOf()`.
+```java
+int[] source = {10, 20, 30, 40, 50};
+int[] destination = new int[5];
+System.arraycopy(source, 0, destination, 0, 5);
+```
+Alternatively:
+```java
+import java.util.Arrays;
+int[] copiedArray = Arrays.copyOf(source, source.length);
+```
 
-#
+### 12. Sorting an Array
+Arrays can be sorted using `Arrays.sort()`.
+```java
+import java.util.Arrays;
+int[] numbers = {5, 3, 8, 1, 2};
+Arrays.sort(numbers);
+System.out.println(Arrays.toString(numbers)); // Prints [1, 2, 3, 5, 8]
+```
 
