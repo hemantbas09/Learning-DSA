@@ -35,18 +35,36 @@ public class Main {
 //    Find the nth fibonacci number ?
 
     public static int calculateFibonacci(int n) {
-        if (n == 1 || n==0) {
-            return n ;
+        if (n == 1 || n == 0) {
+            return n;
         }
         return calculateFibonacci(n - 1) + calculateFibonacci(n - 2);
     }
+
+    //    Given an integer, find out the sum of its digits using recursion
+    public static int calculateSum(int n) {
+        //base case:
+        if (n == 0) {
+            return 0;
+        }
+        return (n % 10) + calculateSum(n / 10);
+    }
+// Given two numbers p and q, find p^q using recursion.
+
+    public static int calculatePower(int p, int q) {
+        //base case:
+        if (q == 0) return 1;
+        return calculatePower(p, q - 1) * p;
+    }
+
 
     public static void main(String[] args) {
 //        naturalNumber(8);
 //        naturalNumbers(5);
 //        System.out.println("The factorials " + calculateFactorial(4));
 
-        System.out.println( calculateFibonacci(10));
+        System.out.println(calculateFibonacci(10));
+        System.out.println("The sum of the digits in give number " + calculateSum(4567));
+        System.out.println(calculatePower(2,5));
     }
-
 }
